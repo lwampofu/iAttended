@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="iA_blue.png">
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>-->
+
+    <script type="text/javascript">
+      function setChartImage() {
+      var query = { cht: "qr", choe: "UTF-8", 
+            chs: value="500x500", chld: value="H",
+            chl: $("#text").val() };
+      var url = "http://chart.apis.google.com/chart?" + $.param(query);
+    
+      $("#chart").attr('src', url);
+      $("#url").val(url);
+      $("#link").attr('href', url);
+      }
+    </script>
+	</head>
+	
+<body>
+  <div>
+    <nav>
+      <div class="nav-wrapper blue" >
+      	<li class="brand-logo" style="padding-top: 7px"><img width="50" hieght="50" src="iA_white.png"></li><ul class="right hide-on-med-and-down">
+        <a id="top" href="#!" class="brand-logo center" style="font-family:Roboto">iATTENDED</a></ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="students.php">Students</a>
+          </li>
+          <li>
+            <a href="changepass.php">Change Password</a>
+          </li>
+          <li>
+            <a href="logout.php">Logout</a>
+          </li>
+        </ul>
+
+        <!--Side Menu-->
+        <ul class="side-nav" id="mobile-demo">
+          <li>
+            <a href="students.php">Students</a>
+          </li>
+          <li>
+            <a href="changepass.php">Change Password</a>
+          </li>
+          <li>
+            <a href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!--Line Separator-->
+  <div class="col s12 grey lighten-3" style="height:5px"></div>
+  
+  <br><br>
+  <!--QR Generator-->
+  <h4 class="center">Generate QR</h4><br><br>
+    <div class="container">
+      <div class="input-field col s6">
+        <textarea id="text" name="QR_Text"></textarea><label>QR DATA</label>
+      </div><br><br>
+      <div class="center"><button class="btn waves-effect waves-light grey darken-4" type="submit" onclick="setChartImage()" name="submit">Generate</button></div>
+    </div><br><br><br><br>
+
+
+    <div class="center"><a id="link" href="#"><img id="chart" src="white.png" alt="QR code"/></a><br><br><br><br><br>
+    
+    <!--JavaScript Component-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>$(".button-collapse").sideNav();</script> 
+
+  </body>
+</html>
+
+<!--
+
+(flow text)
+<p class="flow-text center-align">Generate Your QR Here</p>-->
