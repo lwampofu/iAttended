@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "210942488431",
+    "firebase_url": "https://timiza-be601.firebaseio.com",
+    "project_id": "timiza-be601",
+    "storage_bucket": "timiza-be601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210942488431:android:cbaec38bd991d88ed4029a",
+        "android_client_info": {
+          "package_name": "com.example.iattended_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6ZXPGxi8IUDAzX1ie52zzgk10uEkx80Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210942488431:android:0bef932be8926e1dd4029a",
+        "android_client_info": {
+          "package_name": "lwampofu.firebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6ZXPGxi8IUDAzX1ie52zzgk10uEkx80Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210942488431:android:82495a72b4dfcabdd4029a",
+        "android_client_info": {
+          "package_name": "lwampofu.timiza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6ZXPGxi8IUDAzX1ie52zzgk10uEkx80Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210942488431-a6dv77698lcuadu04g5bg1m9pitkbfnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
