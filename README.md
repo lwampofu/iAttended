@@ -1,6 +1,29 @@
-# iattended_ui
+# iAttended
 
-A new Flutter project.
+##Software function
+
+iAttended is a GPS enabled realtime attendance taking app. The app enables students to take attendance by either scanning the QR Code or Authenticating their fingerprint. It has a mobile version which supports all student functionalities and a web version which is for faculty. 
+
+
+#Data Structures
+
+arrays - widgets
+trees - storage of student details
+
+
+#Technology & Justification
+
+Flutter Based Mobile App - Flutter allows the concurrent development of cross platform applications.
+
+Firebase (Firestore) Database - Realtime Database that can be accessed by both the Web & Mobile Apps
+
+GPS API - to ascertain the location of students ie determine whether or not attendance was taken within the demarcated radius (minimizes situations where people take attendance even when not in class).
+
+Flutter's local auth library - to uniquely identify students.
+
+FI QR Generator using google Chart API in order to enable students to scan the QR Code to proceed with the attendance process 
+
+QR Scanner - alternative for fingerprint attendance taking
 
 ## Getting Started
 
