@@ -8,6 +8,6 @@ function logout(argument) {
         // Destroy the session.
         session_destroy();
         // Redirect to login page
-        header("location: admin_login.php");
+        header("location: index.html");
         exit;
 }
