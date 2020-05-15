@@ -289,23 +289,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: queryData.size.width * 0.05),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Profession',
-                          hintText: 'Profession',
-                          hintStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: queryData.size.width * 0.05,
-                            color: Colors.white,
-                          ),
-                          labelStyle: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: queryData.size.width * 0.05,
-                          ),
-                        ),
-                      ),
+                      
                       SizedBox(height: queryData.size.width * 0.05),
                       TextFormField(
                         decoration: InputDecoration(

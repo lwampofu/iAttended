@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import './student/records.dart';
+import './student/absence_request.dart';
+import './student/attend_class.dart';
+import './student/profile.dart';
+import 'home.dart';
 
 class Dashboard extends StatefulWidget{
   @override
@@ -11,9 +15,11 @@ class _DashboardPageState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         elevation: 0,
         backgroundColor: _appBarColor,
+        
         title: Text('Student Dashboard', style: TextStyle(fontSize: 24, color: Colors.white),),
         iconTheme: IconThemeData(color: Colors.white),
       centerTitle: true,
@@ -26,13 +32,22 @@ class _DashboardPageState extends State<Dashboard> {
           onPressed: (){}),
        
       ],
+      
       ),
       drawer: _SidebarMenu (),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: FittedBox(fit: BoxFit.fill,child: Image(image: AssetImage('assets/images/iAttended2.jpg')),)
+      ),
+      
+      
       );
        
      
     
   }
+  
 }
 
 class _SidebarMenu extends StatelessWidget{
@@ -46,9 +61,12 @@ class _SidebarMenu extends StatelessWidget{
           DrawerHeader(                
                 child: Row(
                   children: <Widget>[
-                    CircleAvatar(radius: 40, backgroundColor: Colors.white),
-                    Text('John Nyagaka', style: TextStyle(color: Colors.white, fontSize: 22),),
-                    SizedBox(width: 20,),
+                    CircleAvatar(
+                      radius: 50, 
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage('assets/images/jm.jpg'),),
+                    Text('John Morris', style: TextStyle(color: Colors.white, fontSize: 22),textAlign: TextAlign.right,),
+                    SizedBox(width: 24,),
                   ],
                 ),
                 decoration: BoxDecoration(color: Color(0xFF7B51D3)),),          
@@ -61,6 +79,11 @@ class _SidebarMenu extends StatelessWidget{
                 style: _sidebarMenuStyle,),
               ],
             ),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context)=> new Profile()));
+
+            }
             ),
             new Divider(
               color: Colors.black,
@@ -74,7 +97,13 @@ class _SidebarMenu extends StatelessWidget{
                 Text('Attend Class', 
                 style: _sidebarMenuStyle,),
               ],
-            ),),
+            ),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context)=> new AttendClass()));
+
+            }
+            ),
             new Divider(
               color: Colors.black,
               height: 7.0,
@@ -87,24 +116,18 @@ class _SidebarMenu extends StatelessWidget{
                 Text('Absence Request', 
                 style: _sidebarMenuStyle,),
               ],
-            ),),
+            ),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context)=> new EmailApp()));
+
+            }
+            ),
             new Divider(
               color: Colors.black,
               height: 7.0,
             ),
-          ListTile(
-            title: Row(
-              children: <Widget>[
-                Icon(Icons.add_box),
-                SizedBox(width: 22),
-                Text('Add Class',
-                style: _sidebarMenuStyle,),
-              ],
-            ),),
-            new Divider(
-              color: Colors.black,
-              height: 7.0,
-            ),
+          
           ListTile(
             title: Row(
               children: <Widget>[
@@ -132,7 +155,13 @@ class _SidebarMenu extends StatelessWidget{
                 Text('Logout',
                 style: _sidebarMenuStyle,),
               ],
-            ),),
+            ),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context)=> new Home()));
+
+            }
+            ),
             new Divider(
               color: Colors.black,
               height: 7.0,
