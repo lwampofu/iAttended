@@ -26,9 +26,10 @@
             const pass = txtPassword.value;
             //console.log(email,pass)
             const auth = firebase.auth();
+            //to look into this
 
             //sign in
-            const promise = auth.signInWithEmailAndPassword(email, password);
+            const promise = auth.signInWithEmailAndPassword(email, pass);
             promise.catch((e) => console.log(e.message));
 
         })
