@@ -31,7 +31,7 @@
     <form class="col s12" action="" method="post">
       <div class="row">
         <div class="input-field col s6">
-          <input id="admin_email" name ="email" type="text" class="validate">
+          <input id="admin_email" name ="email" type="email" class="validate">
           <label for="admin_email">Email Address</label>
         </div>
         <div class="input-field col s6">
@@ -40,7 +40,7 @@
         </div>
         <div>
           <div class="center">
-            <button class="btn waves-effect waves-light blue darken-2 " type="submit" name="submit"><a href="course_reg.html" style="color: white"> Log In</a>
+            <button class="btn waves-effect waves-light blue darken-2 " type="submit" name="submit" id="btnlogin"><a href="#" style="color: white"> Log In</a>
           </button></div>
         </div>
 
@@ -53,6 +53,27 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>$(".button-collapse").sideNav();</script>
+                <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+          
+            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+            <script src="/__/firebase/7.14.3/firebase-app.js"></script>
+          
+            <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+            <script src="/__/firebase/7.14.3/firebase-analytics.js"></script>
+          
+            <!-- Add Firebase products that you want to use -->
+            <script src="/__/firebase/7.14.3/firebase-auth.js"></script>
+            <script src="/__/firebase/7.14.3/firebase-firestore.js"></script>
+
+            <!-- Previously loaded Firebase SDKs -->
+              
+            <!-- Initialize Firebase -->
+            <script src="/__/firebase/init.js"></script>
+
+            <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>-->
+            <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+            <script src="bundle.js"></script>
+            <script src="admin.js"></script>
 
   </body>
 </html>
