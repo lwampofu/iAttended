@@ -74,7 +74,7 @@
       <div class="input-field col s6">
         <textarea id="text" name="QR_Text"></textarea><label>QR DATA</label>
       </div><br><br>
-      <div class="center"><button class="btn waves-effect waves-light grey darken-4" type="submit" onclick="setChartImage()" name="submit">Generate</button></div>
+      <div class="center"><button class="btn waves-effect waves-light grey darken-4" type="submit" onclick="setChartImage(); QRData()" name="submit">Generate</button></div>
     </div><br><br><br><br>
 
 
@@ -106,6 +106,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
     <script src="bundle.js"></script>
     <script src="logout.js"></script>
+    <script src="course_data.js"></script>
 
   </body>
 </html>

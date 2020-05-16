@@ -14,8 +14,20 @@
   //logout
   const logout = document.querySelector('#logout');
   logout.addEventListener('click',(e)=>{
-      e.preventDefault();
+      //e.preventDefault();
       auth.signOut().then(()=>{
+          window.location = 'index.html'
           console.log("Signed Out Successfully");
+          //alert('logged out')
       })
   }) 
+
+              //Realtime Authstate Listener
+
+              /*firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                    window.location = 'course_reg.html'
+                }else{
+                    window.location = 'index.html'
+                }
+        });*/

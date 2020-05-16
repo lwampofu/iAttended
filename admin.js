@@ -26,15 +26,37 @@
             //alert("here")
             const email = txtEmail.value;
             const pass = txtPassword.value;
-            //console.log(email,pass)
-            const auth = firebase.auth();
-            //to look into this
+            if(email!=""&&pass!=""){
+                //console.log(email,pass)
+                const auth = firebase.auth();
+                //to look into this
 
-            //sign in
-            const promise = auth.signInWithEmailAndPassword(email, pass);
-            promise.catch((e) => console.log(e.message));
+                //sign in
+                const promise = auth.signInWithEmailAndPassword(email, pass);
+                promise.catch((e) => console.log(e.message));
+                
+
+            }
+
+            else{
+                e.preventDefault();
+                window.location ='index.html'
+            }
 
         })
+            //Realtime Authstate Listener
+
+            firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                    //alert("login successful")
+                    var email = user.email;
+                    console.log(email);
+                    window.location = 'course_reg.html'
+                }else{
+                    //alert("wrong credentials")
+                    window.location = 'index.html'
+                }
+        });
 
              
              
