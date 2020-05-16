@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'student_dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:iattended_ui/student/stud_dashboard.dart';
 
 
@@ -11,6 +13,9 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   MediaQueryData queryData;
+  final _auth = FirebaseAuth.instance;
+  String email, password;
+  bool showProgress = false;
   
   Color greyc = Color(0xff494F58);
   Color bluec = Color(0xFF7B51D3);
@@ -73,6 +78,9 @@ class _SignInPageState extends State<SignInPage> {
                     children: <Widget>[
                       SizedBox(height: queryData.size.width * 0.2),
                       TextFormField(
+                        onChanged: (value) {
+                          email = value; //get value from textField
+                        },
                         decoration: InputDecoration(
                           labelText: 'Email',
                           hintText: 'Email',
@@ -84,6 +92,9 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       SizedBox(height: queryData.size.width * 0.05),
                       TextFormField(
+                        onChanged: (value) {
+                          password = value; //get value from textField
+                        },
                         decoration: InputDecoration(
                           labelText: 'Password',
                           hintText: 'Password',
@@ -98,14 +109,28 @@ class _SignInPageState extends State<SignInPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           InkWell(
-                            onTap: () {
-                              print('you tapped on create account');
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => SignUpPage(),
-                                ),
-                              );
-                            },
+                            onTap: () async {setState(() {
+                                showProgress = true;
+                                });
+                                try {
+                                      final newuser =
+                                      await _auth.createUserWithEmailAndPassword(
+                                      email: email, password: password);
+
+                                      if (newuser != null) {
+
+                                        Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                        builder: (context) => SignUpPage()),
+                                        );
+                                          setState(() {
+                                          showProgress = false;
+                                        });
+                                          }
+                                          } catch (e) {}
+                                            },
+
                             child: Text(
                               'Create Account',
                               style: TextStyle(
@@ -118,12 +143,37 @@ class _SignInPageState extends State<SignInPage> {
                             child: Material(
                               color: Color(0xFF7B51D3),
                               child: InkWell(
-                                onTap: () {
-                                  print('you tapped on sign in button');
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context)=>Dashboard())
-                                  );
-                                      },
+                                onTap: () async {
+                                  setState(() {
+                                    showProgress = true;
+                                  });
+
+                                  try {
+                                    final newUser = await _auth.signInWithEmailAndPassword(
+                                        email: email, password: password);
+
+                                    print(newUser.toString());
+
+                                    if (newUser != null) {
+                                      Fluttertoast.showToast(
+                                          msg: "Login Successfull",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.blueAccent,
+                                          textColor: Colors.white,
+                                          fontSize: 16.0);
+                                        print('you tapped on sign in button');
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context)=>Dashboard())
+                                        );
+
+                                      setState(() {
+                                        showProgress = false;
+                                      });
+                                    }
+                                  } catch (e) {}
+                                },
                                 child: Padding(
                                   padding: EdgeInsets.all(
                                       queryData.size.width * 0.07),

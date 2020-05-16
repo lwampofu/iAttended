@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 
+
 class AttendClass extends StatefulWidget{
   @override
   _AttendClassPage createState()=> _AttendClassPage();
