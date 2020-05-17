@@ -45,7 +45,7 @@
 
         })
             //Realtime Authstate Listener
-
+        /*
             firebase.auth().onAuthStateChanged(user => {
                 if(user){
                     //alert("login successful")
@@ -56,7 +56,7 @@
                     //alert("wrong credentials")
                     window.location = 'index.html'
                 }
-        });
+        });*/
 
              
              
