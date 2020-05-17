@@ -34,7 +34,7 @@
                 //sign in
                 const promise = auth.signInWithEmailAndPassword(email, pass);
                 promise.catch((e) => console.log(e.message));
-                
+                window.location = 'course_reg.html'
 
             }
 
@@ -51,7 +51,7 @@
                     //alert("login successful")
                     var email = user.email;
                     console.log(email);
-                    window.location = 'course_reg.html'
+                   // window.location = 'course_reg.html'
                 }else{
                     //alert("wrong credentials")
                     window.location = 'index.html'
