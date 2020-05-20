@@ -3,9 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'student_dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:iattended_ui/student/stud_dashboard.dart';
-
-
 class SignInPage extends StatefulWidget {
   @override
   _SignInPageState createState() => _SignInPageState();
@@ -29,8 +26,10 @@ class _SignInPageState extends State<SignInPage> {
         child: CustomPaint(
           painter: SignInPainter(),
           child: Column(
+            
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              
               SizedBox(height: queryData.size.width * 0.1),
               Row(
                 children: <Widget>[
@@ -82,14 +81,10 @@ class _SignInPageState extends State<SignInPage> {
                           email = value; //get value from textField
                         },
                         decoration: InputDecoration(
-                          labelText: 'Email',
-                          hintText: 'Email',
-                          labelStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: queryData.size.width * 0.05,
-                          ),
-                        ),
-                      ),
+                        hintText: "Enter your Email",
+                        border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(32.0)))),
+              ),
                       SizedBox(height: queryData.size.width * 0.05),
                       TextFormField(
                         onChanged: (value) {
@@ -185,6 +180,7 @@ class _SignInPageState extends State<SignInPage> {
                               ),
                             ),
                           ),
+                          
                         ],
                       ),
                       SizedBox(height: queryData.size.width * 0.05),
@@ -267,6 +263,9 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   MediaQueryData queryData;
+  final _auth = FirebaseAuth.instance;
+  bool showProgress = false;
+  String email, password;
   Color whitec = Colors.white;
   Color bluec = Color(0xFF7B51D3);
 
@@ -274,9 +273,10 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: SingleChildScrollView(
         child: CustomPaint(
-          painter: SignUpPainter(),
+          painter: SignInPainter(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -317,6 +317,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ],
               ),
+              SizedBox(
+              height: 40,
+              ),
               Padding(
                 padding: EdgeInsets.all(queryData.size.width * 0.07),
                 child: Form(
@@ -324,29 +327,38 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: <Widget>[
                       SizedBox(height: queryData.size.width * 0.1),
                       TextFormField(
+                        textAlign: TextAlign.center,                       
+                        
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32.0))),
                           labelText: 'Name',
                           hintText: 'Name',
                           hintStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
                             fontSize: queryData.size.width * 0.05,
                             color: Colors.white,
                           ),
                           labelStyle: TextStyle(
-                            color: Colors.black,
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                             fontSize: queryData.size.width * 0.05,
                           ),
                         ),
-                      ),
-                      
+                      ),                                         
                       SizedBox(height: queryData.size.width * 0.05),
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        textAlign: TextAlign.center,
+                        onChanged: (value) {
+                        email = value; //get the value entered by user.
+                          },
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32.0))),
                           labelText: 'Email',
-                          hintText: 'Email',
+                          hintText: 'Enter your Email Address',
+                          
                           hintStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
                             fontSize: queryData.size.width * 0.05,
                             color: Colors.black,
                           ),
@@ -359,14 +371,20 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       SizedBox(height: queryData.size.width * 0.05),
                       TextFormField(
+                        obscureText: true,
+                        textAlign: TextAlign.center,
+                        onChanged: (value) {
+                        password = value; //get the value entered by user.
+                      },
                         decoration: InputDecoration(
                           labelText: 'Password',
                           hintText: 'Password',
                           hintStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
                             fontSize: queryData.size.width * 0.05,
                             color: Colors.black,
                           ),
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32.0))),
                           labelStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: queryData.size.width * 0.05,
@@ -400,11 +418,28 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: Material(
                               color: Color(0xFF7B51D3),
                               child: InkWell(
-                                onTap: () {
-                                  print('you tapped on sign up button');
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context)=>SignInPage())
-                                  );
+                                onTap: () async{
+                                  print('you tapped on sign up button');                                  
+                                  setState(() {
+                                  showProgress = true; });
+                                  
+                                   try {
+                                  final newuser =
+                                  await _auth.createUserWithEmailAndPassword(
+                                  email: email, password: password);
+
+                                  if (newuser != null) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => SignInPage()),
+                                      );
+
+                                      setState(() {
+                                        showProgress = false;
+                                      });
+                                    }
+                                  } catch (e) {}
                                       },
                                 child: Padding(
                                   padding: EdgeInsets.all(
