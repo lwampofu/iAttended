@@ -29,12 +29,14 @@
             if(email!=""&&pass!=""){
                 //console.log(email,pass)
                 const auth = firebase.auth();
-                //to look into this
 
                 //sign in
                 const promise = auth.signInWithEmailAndPassword(email, pass);
                 promise.catch((e) => console.log(e.message));
-                window.location = 'course_reg.html'
+                promise.then((value)=>{
+                    window.location = 'course_reg.html'
+                })
+                
 
             }
 
@@ -56,8 +58,8 @@
                     //alert("wrong credentials")
                     window.location = 'index.html'
                 }
-        });*/
-
+        });
+*/
              
              
 
