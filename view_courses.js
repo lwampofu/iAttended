@@ -24,10 +24,14 @@ function renderStud(doc){
     //let email = document.createElement('span');
     //button element
     let btn = document.createElement('BUTTON');
+    btn.style.color = 'white';
+    btn.style.backgroundColor = "green";
+    btn.style.outlineColor = "blue";
+    btn.style.shapeRendering;
     let space = document.createElement('span');
     //text to be displayed by button
     var text = document.createTextNode("SELECT"); 
-
+    var style = document.createElement('style');
 
     li.setAttribute('data-id', doc.id);
     name.textContent = doc.data().Name;
@@ -39,11 +43,13 @@ function renderStud(doc){
     //sid.textContent = doc.data().sid;
 
     li.appendChild(name);
-    li.appendChild(space);
+    li.appendChild (document.createTextNode (" "));
+    //li.appendChild(space);
     li.appendChild(cid);
+    li.appendChild (document.createTextNode (" "));
     btn.onclick = false;
     document.body.appendChild(btn);
-    var delay = 2000
+    var delay = 10000
     if (btn.onclick = true) {
 
         setTimeout(function(){

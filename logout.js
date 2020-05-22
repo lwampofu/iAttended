@@ -11,8 +11,9 @@
 
     });
   
-  
-  const logout = document.querySelector('#logout');
+  //const auth = firebase.auth();
+ /* const logout = document.getElementById('logout');
+  if(logout){
   logout.addEventListener('click',(e)=>{
       //e.preventDefault();
       auth.signOut().then(()=>{
@@ -21,7 +22,12 @@
           //alert('logged out')
       })
   }) 
-
+  }*/
+  /*var el = document.getElementById('overlayBtn');
+  if(el){
+    el.addEventListener('click', swapper, false);
+  }
+*/
               //Realtime Authstate Listener
 
               /*firebase.auth().onAuthStateChanged(user => {
