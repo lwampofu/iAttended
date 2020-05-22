@@ -20,21 +20,41 @@ function renderStud(doc){
     let li = document.createElement('li');
     let name = document.createElement('span');
     let cid = document.createElement('span');
+    //let whitespace = document.createTextNode("\u00A0");
     //let email = document.createElement('span');
-    //let sid = document.createElement('span');
-    //let space = document.createElement('nbsp');
+    //button element
+    let btn = document.createElement('BUTTON');
+    let space = document.createElement('span');
+    //text to be displayed by button
+    var text = document.createTextNode("SELECT"); 
 
 
     li.setAttribute('data-id', doc.id);
     name.textContent = doc.data().Name;
-    //space.textContent = "";
+    space.textContent = doc.data().space;
     cid.textContent = doc.data().id;
+    //appending text to button
+    btn.appendChild(text);
     //email.textContent = doc.data().email;
     //sid.textContent = doc.data().sid;
 
     li.appendChild(name);
-    //li.appendChild(space);
+    li.appendChild(space);
     li.appendChild(cid);
+    btn.onclick = false;
+    document.body.appendChild(btn);
+    var delay = 2000
+    if (btn.onclick = true) {
+
+        setTimeout(function(){
+            window.location.href = "admin_home.html"
+
+        },delay)
+        
+    } 
+
+    li.appendChild(btn);
+
     //li.appendChild(email);
     //li.appendChild(sid);
 

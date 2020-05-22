@@ -41,8 +41,10 @@
             }
 
             else{
+                
                 e.preventDefault();
                 window.location ='index.html'
+                alert("Wrong Password or Email Address!")
             }
 
         })

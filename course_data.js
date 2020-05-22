@@ -5,13 +5,13 @@
                     projectId: 'timiza-be601'
                     });*/
                 
-               // var db = firebase.firestore();
+               //var db = firebase.firestore();
                 //adding QR Data
                 function QRData(){
                     var qrData = document.getElementById('text').value ;
                     
 
-                    db.collection("courses").doc("Software Engineering").set({
+                    db.collection("courses").doc("VUIyT8vvdkkqHNq5rF6b").add({
                         QRData: qrData
                         
                     })
